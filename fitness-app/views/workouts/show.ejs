@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> <%= title %> </title>
+    <title> <%= workout.title %> </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1> show workout page </h1>
     <br>
     <div><%= workout.date %></div>
+    <br> 
+    <div><%= workout.id %></div>
+    <br> <br>
+    <% workout.exercise.forEach(exercise => { %>
+        <div>Exercise: <%= exercise.name %> </div>
+        <div>No of Sets: <%= exercise.sets %> </div>
+        <div>No of Reps: <%= exercise.reps %> </div>
+        <div>Note: <%= exercise.note %> </div>
+        <br>
+    <% }) %>
+    <br> <br>
+    <a href="/workouts/<%=workout.id%>/exercises/new">Add Exercise</a>
   </body>
 </html>

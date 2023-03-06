@@ -8,6 +8,7 @@ require('./config/database')
 
 var indexRouter = require('./routes/index');
 var workoutsRouter = require('./routes/workouts');
+var exercisesRouter = require('./routes/exercises')
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/workouts', workoutsRouter);
+app.use('/', exercisesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
