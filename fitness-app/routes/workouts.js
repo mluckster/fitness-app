@@ -8,5 +8,7 @@ router.get('/new', workoutsCtrl.new)
 router.post('/', workoutsCtrl.create)
 router.get('/:id', workoutsCtrl.show)
 router.delete('/:id', workoutsCtrl.delete)
+router.get('/:id/edit', workoutsCtrl.edit)
+router.put('/:id/', workoutsCtrl.update)
 
 module.exports = router;

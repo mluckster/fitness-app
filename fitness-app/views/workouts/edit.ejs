@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1> Change Workout Name </h1>
+    <br>
+    <form action="/workouts/<%=workout.id%>?_method=PUT" method="POST">
+        Workout Name: <input type="text" name="title" value="<%=workout.title%>">
+        <br>
+        Workout Date: <input type="date" name="date" value="<%=workout.date%>">
+        <br><br>
+        <input type="submit">
+    </form>
+  </body>
+</html>

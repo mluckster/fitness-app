@@ -55,8 +55,6 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    console.log(req.params)
-    console.log(req.body)
     Workout.findById(req.params.wid)
     .then(workout => {
         var idx = workout.exercise.findIndex((exer) => {
