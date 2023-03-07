@@ -13,7 +13,7 @@ module.exports = {
 function index(req, res) {
     Workout.find({})
     .then(workouts => {
-        res.render('workouts/index', { title: 'Workouts', workouts } )
+        res.render('workouts/index', { title: 'Upcoming Workouts', workouts } )
     })
 }
 
