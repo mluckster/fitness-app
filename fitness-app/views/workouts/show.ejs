@@ -12,12 +12,20 @@
     <div><%= workout.id %></div>
     <br> <br>
     <% workout.exercise.forEach(exercise => { %>
-        <div>Exercise: <%= exercise.name %> </div>
-        <div>No of Sets: <%= exercise.sets %> </div>
-        <div>No of Reps: <%= exercise.reps %> </div>
-        <div>Note: <%= exercise.note %> </div>
-        <br>
-    <% }) %>
+      <div>Exercise: <%= exercise.name %> </div>
+      <div>No of Sets: <%= exercise.sets %> </div>
+      <div>No of Reps: <%= exercise.reps %> </div>
+      <div>Note: <%= exercise.note %> </div>
+      <div>ExerciseID: <%= exercise._id %> </div>
+      <div>workoutID: <%= workout.id %> </div>
+      <form action="/workouts/<%= workout.id %>/exercises/<%=exercise.id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE THIS">
+      </form>
+      <form action="/workouts/<%= workout.id %>/exercises/<%=exercise.id%>/edit" method="GET">
+        <input type="submit" value="EDIT">
+      </form>
+        <br> <br>
+        <% }) %>
     <br> <br>
     <a href="/workouts/<%=workout.id%>/exercises/new">Add Exercise</a>
   </body>
