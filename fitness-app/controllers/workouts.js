@@ -5,6 +5,7 @@ module.exports = {
     new: newWorkout,
     create,
     show,
+    delete: deleteWorkout,
 }
 
 function index(req, res) {
@@ -31,5 +32,12 @@ function show(req, res) {
     Workout.findById(req.params.id)
     .then(workout => {
         res.render('workouts/show', { title: `${workout.title}`, workout } )
+    })
+}
+
+function deleteWorkout (req, res) {
+    Workout.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.redirect('/workouts')
     })
 }
