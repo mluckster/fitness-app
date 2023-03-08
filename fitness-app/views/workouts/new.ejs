@@ -2,13 +2,17 @@
 
 
     <h1> Add New Workout </h1>
-    <br>
-    <form action="/workouts" method="POST">
-        Workout Name: <input type="text" name="title">
-        <br>
-        Date: <input type="date" name="date">
-        <br><br>
+    <form action="/workouts" method="POST" class="form">
+      <div class="insert-page">
+        Workout Name: <input type="text" name="title" class="input-workout">
+      </div>
+      <div class="insert-page">
+        Date: <input type="date" name="date" class="input-workout">
+      </div> <br>
+      <div class="update-button">
         <input type="submit">
+      </div>
+      </div>
     </form>
   </body>
 </html>

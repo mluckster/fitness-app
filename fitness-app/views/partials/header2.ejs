@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= workout.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="nav-bar">
+        <div id="side-bar">
+            <img src="/images/logo.png">
+            <a href="/workouts/<%=workout.id%>" class="active"><%= workout.title %></a>
+        </div>    
+        <div class="links">
+            <a href="/workouts">WORKOUTS</a> 
+            <a href="/workouts/new">+ NEW WORKOUT</a> 
+        </div>
+    </nav>

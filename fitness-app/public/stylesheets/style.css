@@ -34,6 +34,7 @@ nav {
 
 h1 {
   display: flex;
+  justify-content: center;
 }
 
 nav > div > a:hover {
@@ -85,10 +86,6 @@ nav > img {
   height: 90px;
 }
 
-#new {
-  align-self: center;
-}
-
 .links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -137,6 +134,8 @@ input[type=submit] {
   background-color: #5DECBF;
   color: #373E63;
   border-radius: 5px;
+  height: 25px;
+  width: 75px;
 }
 
 input[type=submit]:hover {
@@ -148,4 +147,95 @@ input[type=submit]:hover {
 
 .space {
   height: 0;
+}
+
+#exercise {
+  width: 500px;
+  height: 125px;
+}
+
+#centre {
+  top: -75px;
+  left: 300px;
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 225px;
+}
+
+.no-workouts {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 30px;
+  font-size: 38px;
+  text-align: center;
+}
+
+#add-exercise {
+  color: #373E63;
+}
+
+#note {
+  display: flex;
+  align-items: center;
+  height:150px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  margin: auto;
+  font-size: 30px;
+}
+
+.insert-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type=text],[type=number],[type=date], textarea {
+  background-color: #57507B;
+  color: #5DECBF;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+  text-align: start;
+} 
+
+.update-button {
+  display: flex;
+  justify-content: center;
+}
+
+#update-button {
+  height: 40px;
+  width: 75px;
+}
+
+.input-workout {
+  width: 250px;
+}
+
+#side-bar {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+  align-items: center;
+}
+
+#side-bar > * {
+  padding: 15px;
+  border-radius: 15px;
+}
+
+img {
+  height: 90px;
 }

@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> <%= title %> </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> EDIT Exercise </h1>
-    <br>
-    <h3> <%= exercise.name %> </h3>
-    <form action="/workouts/<%=wid%>/exercises/<%=eid%>?_method=PUT" method="POST">
+<%- include('../partials/header2') %>
+
+    <h1> Edit </h1>
+    <form action="/workouts/<%=wid%>/exercises/<%=eid%>?_method=PUT" method="POST" class="form">
+      <div class="insert-page">
         Exercise Name: <input type="text" name="name" value="<%=exercise.name%>">
+      </div>
+      <div class="insert-page">
+        # of Sets: <input type="number" name="sets" min="1" value="<%=exercise.sets%>">
+      </div>
+      <div class="insert-page">
+        # of Reps: <input type="number" name="reps" min="1" value="<%=exercise.reps%>">
+      </div>
+        Notes: 
+        <textarea name="note" id="note"><%=exercise.note%></textarea>
         <br>
-        Number of Sets: <input type="number" name="sets" min="1" value="<%=exercise.sets%>">
-        <br>
-        Number of Reps: <input type="number" name="reps" min="1" value="<%=exercise.reps%>">
-        <br>
-        Notes: <input type="text" name="note" value="<%=exercise.note%>">
-        <br><br>
-        <input type="submit">
+      <div class="update-button">
+        <input type="submit" value="Update" id="update-button">
+      </div>
     </form>
   </body>
 </html>

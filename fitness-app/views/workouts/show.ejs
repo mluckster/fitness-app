@@ -1,27 +1,30 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header2') %>
 
-    <h1> show workout page </h1>
-    <br>
-    <div><%= workout.date %></div>
-    <br> 
-    <div><%= workout.id %></div>
-    <br> <br>
+<div>
+  <% if(workout.exercise.length) { %>
     <% workout.exercise.forEach(exercise => { %>
-      <div>Exercise: <%= exercise.name %> </div>
-      <div>No of Sets: <%= exercise.sets %> </div>
-      <div>No of Reps: <%= exercise.reps %> </div>
-      <div>Note: <%= exercise.note %> </div>
-      <div>ExerciseID: <%= exercise._id %> </div>
-      <div>workoutID: <%= workout.id %> </div>
-      <form action="/workouts/<%= workout.id %>/exercises/<%=exercise.id%>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE THIS">
-      </form>
-      <form action="/workouts/<%= workout.id %>/exercises/<%=exercise.id%>/edit" method="GET">
-        <input type="submit" value="EDIT">
-      </form>
-        <br> <br>
-        <% }) %>
-    <br> <br>
-    <a href="/workouts/<%=workout.id%>/exercises/new">Add Exercise</a>
+      <div onclick="window.location='/workouts/<%= workout.id %>/exercises/<%=exercise.id%>/edit'" class="workouts" id="exercise">
+        <div id="details">
+          <div> <%= exercise.name %> </div>
+          <div> Sets: <%= exercise.sets %> </div>
+          <div> Reps: <%= exercise.reps %> </div>
+        </div>
+        <div id="notes"> <%= exercise.note %> </div>
+      </div>
+      <form action="/workouts/<%= workout.id %>/exercises/<%=exercise.id%>?_method=DELETE" method="POST" class="delete" id="centre">
+        <input type="submit" value="X">
+      </form> 
+      <% }) %> 
+      <div>
+        <% } else { %>
+          <div class="no-workouts">
+            No Exercises Added <br> <br>
+          </div>
+      </div>
+    <% } %>
+    <div class="workouts" onclick="window.location='/workouts/<%=workout.id%>/exercises/new'" >
+      Add Exercise
+    </div>
+</div>
   </body>
 </html>

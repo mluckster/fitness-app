@@ -9,8 +9,8 @@ module.exports = {
 }
 
 function newExercise(req, res) {
-    var id = req.params.id
-    res.render('exercises/new', { title: 'Add Exercise', id } )
+    Workout.findById(req.params.id)
+    .then(workout => res.render('exercises/new', { title: 'Add Exercise', workout } ))
 }
 
 function create(req, res) {
@@ -19,6 +19,10 @@ function create(req, res) {
         workout.exercise.push(req.body)
         workout.save()
         .then(() => res.redirect(`/workouts/${req.params.id}`))
+        .catch((err) => {
+            console.log(err)
+            res.redirect(`/workouts/${req.params.id}`)
+        })
     })
 }
 
@@ -50,7 +54,7 @@ function edit(req, res) {
             } 
         })
     var exercise = workout.exercise[idx]
-    res.render('exercises/edit', { title: "Edit Exercise Info", exercise, eid, wid } )
+    res.render('exercises/edit', { title: "Edit Exercise Info", exercise, eid, wid, workout } )
     })
 }
 

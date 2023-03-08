@@ -13,7 +13,7 @@ module.exports = {
 function index(req, res) {
     Workout.find({})
     .then(workouts => {
-        res.render('workouts/index', { title: 'Upcoming Workouts', workouts } )
+        res.render('workouts/index', { title: 'Workouts', workouts } )
     })
 }
 
@@ -53,7 +53,7 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    Workout.findOneAndUpdate(req.params.id, req.body)
+    Workout.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
         res.redirect('/workouts')
     })

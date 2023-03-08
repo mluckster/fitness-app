@@ -1,13 +1,18 @@
 <%- include('../partials/header') %>
 
-    <h1> Change Workout Name </h1>
-    <br>
-    <form action="/workouts/<%=workout.id%>?_method=PUT" method="POST">
-        Workout Name: <input type="text" name="title" value="<%=workout.title%>">
-        <br>
-        Workout Date: <input type="date" name="date" value="<%=workout.date%>">
-        <br><br>
-        <input type="submit">
-    </form>
-  </body>
+<h1> Edit Workout Name / Date </h1>
+<form action="/workouts/<%=workout.id%>?_method=PUT" class="form" method="POST">
+  <div class="insert-page">
+    Workout Name: <input type="text" name="title" class="input-workout" value="<%=workout.title%>">
+  </div>
+  <div class="insert-page">
+    Date: <input type="date" name="date" class="input-workout" value="<%=workout.date%>">
+  </div> <br>
+  <div class="update-button">
+    <input type="submit">
+  </div>
+  </div>
+</form>
+</body>
 </html>
+
