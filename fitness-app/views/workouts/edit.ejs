@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> <%= title %> </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<%- include('../partials/header') %>
+
     <h1> Change Workout Name </h1>
     <br>
     <form action="/workouts/<%=workout.id%>?_method=PUT" method="POST">

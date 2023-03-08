@@ -1,24 +1,30 @@
 <%- include('../partials/header') %>
 
-    <h1> Workout index page </h1>
-    <p>Click <a href="/workouts/new">here</a> to add workout</p>
-    <br> 
-    <div>List of workouts below</div> <br>
+<div>
+  <% if(JSON.stringify(workouts).length-2) { %>
+    <div class="workout-info">
     <% workouts.forEach(workout => { %>
-      Name: <%= workout.title %>
-      <br>
-      <%= workout.date %>
-      <br>
-      <%= workout._id %>
-      <br>
-      <a href="/workouts/<%=workout.id%>">Workout Details</a> <br> 
-      <form action="/workouts/<%= workout.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE">
-      </form> <br>
-      <form action="/workouts/<%= workout.id %>/edit" method="GET">
-        <input type="submit" value="EDIT NAME / DATE">
-      </form> 
-      <br> <br>
+        <div onclick="window.location='/workouts/<%=workout.id%>'" class="workouts">
+          <div> <%= workout.title %> </div>
+          <div> <%= workout.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %> </div>
+        </div>
+          <div> 
+            <form action="/workouts/<%= workout.id %>?_method=DELETE" method="POST" class="delete">
+              <input type="submit" value="X">
+            </form> 
+          </div>
+          <div class="space">  
+            <form action="/workouts/<%= workout.id %>/edit" method="GET" class="edit">
+              <input type="submit" value="EDIT">
+            </form> 
+          </div>        
     <% }) %> 
-  </body>
+    </div>
+    <% } else { %>
+      <div class="no-workouts">
+        No Workouts Yet!
+    </div>
+  <% } %>
+</div>
+</body>
 </html>

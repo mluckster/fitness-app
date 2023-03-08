@@ -6,7 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <img src="/images/logo.png" class="logo">
-      <h1>  <div class="gym">GYM</div><div class="dolphin">DOLPHIN</div> </h1>
+    <nav class="nav-bar">
+    <img src="/images/logo.png">
+    <div class="links">
+        <a href="/workouts" id="upcoming" <%- title === 'Upcoming Workouts' ? 'class="active"' : '' %>>UPCOMING WORKOUTS</a> 
+        <a href="/workouts/new" id="new" <%- title === 'New Workout' ? 'class="active"' : '' %>>+ NEW WORKOUT</a> 
+    </div>
     </nav>
