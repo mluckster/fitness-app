@@ -22,12 +22,20 @@ function newWorkout(req, res) {
 }
 
 function create(req, res) {
-    var workout = new Workout(req.body)
     if (req.body.date===''){
-        workout.date=undefined
+        req.body.date=undefined
+    } else {
+        // from GA note
+        const s = req.body.date
+        req.body.date = `${s.substr(5, 2)}-${s.substr(8, 2)}-${s.substr(0, 4)}`;
     }
+    var workout = new Workout(req.body)
     workout.save()
     .then(() => res.redirect('/workouts'))
+    .catch((err) => {
+        console.log(err)
+        res.redirect(`/workouts`)
+    })
 }
 
 function show(req, res) {
@@ -45,7 +53,6 @@ function deleteWorkout (req, res) {
 }
 
 function edit(req, res) {
-    console.log(req.params.id)
     Workout.findById(req.params.id)
     .then((workout) => { 
         res.render('workouts/edit', { title: 'Edit Workout Name', workout } )
@@ -53,8 +60,18 @@ function edit(req, res) {
 }
 
 function update(req, res) {
+    if (req.body.date===''){
+        req.body.date=undefined
+    } else {
+        // from GA note
+        const s = req.body.date
+        req.body.date = `${s.substr(5, 2)}-${s.substr(8, 2)}-${s.substr(0, 4)}`;
+    }
     Workout.findByIdAndUpdate(req.params.id, req.body)
-    .then(() => {
+    .then((workout) => {
         res.redirect('/workouts')
+    }).catch((err) => {
+        console.log(err)
+        res.redirect(`/workouts`)
     })
 }

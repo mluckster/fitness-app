@@ -3,13 +3,13 @@
     <h1> Add New Exercise </h1>
     <form action="/workouts/<%=workout.id%>/exercises" method="POST" class="form">
       <div class="insert-page">
-        Exercise Name: <input type="text" name="name">
+        Exercise Name: <input type="text" name="name" required>
       </div>
       <div class="insert-page">
-        # of Sets: <input type="number" name="sets" min="1">
+        # of Sets: <input type="number" name="sets" min="1" required>
       </div>
       <div class="insert-page">
-        # of Reps: <input type="number" name="reps" min="1">
+        # of Reps: <input type="number" name="reps" min="1" required>
       </div>
         Notes: 
         <textarea name="note" id="note"></textarea>

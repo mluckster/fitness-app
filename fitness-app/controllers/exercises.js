@@ -40,6 +40,10 @@ function deleteExer (req, res) {
         workout.exercise.splice(idx, 1)
         workout.save()
         .then(() => res.redirect(`/workouts/${req.params.wid}`))
+        .catch((err) => {
+            console.log(err)
+            res.redirect(`/workouts/${req.params.wid}`)
+        })
     })
 }
 
@@ -55,7 +59,7 @@ function edit(req, res) {
         })
     var exercise = workout.exercise[idx]
     res.render('exercises/edit', { title: "Edit Exercise Info", exercise, eid, wid, workout } )
-    })
+    }) 
 }
 
 function update(req, res) {
@@ -69,5 +73,9 @@ function update(req, res) {
         workout.exercise[idx]=req.body
         workout.save()
         .then(() => res.redirect(`/workouts/${req.params.wid}`))
+        .catch((err) => {
+            console.log(err)
+            res.redirect(`/workouts/${req.params.wid}`)
+        })
     })
 }

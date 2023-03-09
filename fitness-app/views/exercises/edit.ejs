@@ -3,13 +3,13 @@
     <h1> Edit </h1>
     <form action="/workouts/<%=wid%>/exercises/<%=eid%>?_method=PUT" method="POST" class="form">
       <div class="insert-page">
-        Exercise Name: <input type="text" name="name" value="<%=exercise.name%>">
+        Exercise Name: <input type="text" name="name" value="<%=exercise.name%>" required>
       </div>
       <div class="insert-page">
-        # of Sets: <input type="number" name="sets" min="1" value="<%=exercise.sets%>">
+        # of Sets: <input type="number" name="sets" min="1" value="<%=exercise.sets%>" required>
       </div>
       <div class="insert-page">
-        # of Reps: <input type="number" name="reps" min="1" value="<%=exercise.reps%>">
+        # of Reps: <input type="number" name="reps" min="1" value="<%=exercise.reps%>" required>
       </div>
         Notes: 
         <textarea name="note" id="note"><%=exercise.note%></textarea>

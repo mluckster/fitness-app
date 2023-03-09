@@ -22,7 +22,6 @@ const exerciseSchema = new Schema ({
 const workoutSchema = new Schema({
     title: {
         type: String,
-        required: true,
     },
     date: {
         type: Date,
